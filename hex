@@ -1,0 +1,18 @@
+#!/bin/bash
+
+re='^[0-9]+$'
+
+if [ -z ${1+x} ]; then
+	echo "No file input"
+	exit -1
+elif [[ $1 =~ $re ]] ; then
+	ruby /bin/hexagony/interpreter.rb -g $1 > $2 
+	exit 0
+fi
+
+if [ -d "/usr/bin/hexagony/" ]; then
+	ruby /bin/hexagony/interpreter.rb $1
+else
+	echo "Could not locate /usr/bin/hexagony/"
+        exit -1
+fi

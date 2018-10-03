@@ -13,7 +13,7 @@ elif [[ $1 =~ $re ]] ; then
 fi
 
 if [ $1 == "-d" ]; then
-	ruby $interpreterDir -d $1
+	ruby $interpreterDir -d $2
 fi
 if [ -d "/usr/local/bin/hexagony" ]; then
 	ruby $interpreterDir $1

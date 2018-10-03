@@ -2,9 +2,7 @@
 
 re='^[0-9]+$'
 
-PWD="$(dirname $0)"
-interpreterDir="$(PWD)/hexagony/interpreter.rb"
-
+interpreterDir="/usr/local/bin/hexagony/interpreter.rb"
 
 if [ -z ${1+x} ]; then
 	echo "No file input"
@@ -17,9 +15,9 @@ fi
 if [ $1 == "-d" ]; then
 	ruby $interpreterDir -d $1
 fi
-if [ -d "/usr/bin/hexagony/" ]; then
+if [ -d "/usr/local/bin/hexagony" ]; then
 	ruby $interpreterDir $1
 else
-	echo "Could not locate /usr/bin/hexagony/"
+	echo "Could not locate /usr/local/bin/hexagony"
         exit -1
 fi
